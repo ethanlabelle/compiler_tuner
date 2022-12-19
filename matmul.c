@@ -32,21 +32,3 @@ void setRand(int *A, int n) {
 		for (int j = 0; j < n; j++)
 			A[i * n + j] = rand() % INP_BND;
 }
-
-//int main() {
-//	int N = 4;
-//	int *A = malloc(N*N*sizeof(int));
-//	setRand(A, N);
-//	printMatrix(A, N);
-//	int *B = malloc(N*N*sizeof(int));
-//	setRand(B, N);
-//	printMatrix(B, N);
-//	int *C = malloc(N*N*sizeof(int));
-//	//matmul(A, B, C, N);
-//	_matmul(A, B, C, N, N, N);
-//	printMatrix(C, N);
-//	verify(A, B, C, N);
-//	free(A);
-//	free(B);
-//	free(C);
-//}

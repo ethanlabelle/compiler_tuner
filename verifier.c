@@ -28,16 +28,15 @@ int freivald(int* A,int* B,int* C, int n) {
 	for (int i = 0; i < n; i++) {
 		r[i] = rand() % 2;
 	}
-	int *Br = malloc(n * sizeof(int));
-	int *Cr = malloc(n * sizeof(int));
-	int *ABr = malloc(n * sizeof(int));
-	int *sub = malloc(n * sizeof(int));
+	int *Br = calloc(n, sizeof(int));
+	int *Cr = calloc(n, sizeof(int));
+	int *ABr = calloc(n, sizeof(int));
+	int *sub = calloc(n, sizeof(int));
 	_matmul(B, r, Br, n, n, 1);
 	_matmul(C, r, Cr, n, n, 1);
 	_matmul(A, Br, ABr, n, n, 1);
 	matsub(ABr, Cr, sub, n, 1);
 	for (int i = 0; i < n; i++) {
-		printf("%d\n", sub[i]);
 		assert(sub[i] == 0);
 	}
 	free(Br);
@@ -48,23 +47,20 @@ int freivald(int* A,int* B,int* C, int n) {
 }
 
 void verify() {
-    printf("in verify\n");
-	// int N = 4;
-	// int *A = malloc(N*N*sizeof(int));
-	// setRand(A, N);
-	// printMatrix(A, N);
-	// int *B = malloc(N*N*sizeof(int));
-	// setRand(B, N);
-	// printMatrix(B, N);
-	// int *C = malloc(N*N*sizeof(int));
-    // for (int i = 1; i <= 100; i++) {
-    //     int *A = malloc(i*i*sizeof(int));
-    //     int *B = malloc(i*i*sizeof(int));
-    //     int *C = malloc(i*i*sizeof(int));
-    //     matmul(A, B, C, i);
-    //     assert(freivald(A, B, C, i));
-    // }
-	// free(A);
-	// free(B);
-	// free(C);
+    for (int i = 1; i <= 100; i++) {
+        int *A = calloc(i*i, sizeof(int));
+        int *B = calloc(i*i, sizeof(int));
+        int *C = calloc(i*i, sizeof(int));
+        setRand(A, i);
+        setRand(B, i);
+        //printMatrix(A, i);
+        //printMatrix(B, i);
+        matmul(A, B, C, i);
+        //printMatrix(C, i);
+        for (int j = 0; j < i; j++)
+            assert(freivald(A, B, C, i));
+	    free(A);
+	    free(B);
+	    free(C);
+    }
 }
