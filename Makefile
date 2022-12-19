@@ -1,5 +1,5 @@
 CC = clang
-CFLAGS = 
+CFLAGS =
 DEPS = verifier.h performance.h matmul.h
 OBJECTS = driver driver.o verifier.o performance.o matmul.o
 
