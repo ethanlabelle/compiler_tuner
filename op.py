@@ -1,28 +1,82 @@
 import subprocess
 import os
+from itertools import chain, combinations
 
-def cat_makefile():
+def powerset(elements):
+    return chain.from_iterable(combinations(elements, r) for r in range(len(elements) + 1))
+
+def add_flags(flags):
     os.chdir("./src")
-    file = open("Makefile", "r+") 
-    [print(line) for line in file.readlines()]
+    file = open("Makefile", "r") 
+    data = file.readlines()
+    for i in range(len(data)):
+        if data[i].startswith("CFLAGS ="):
+            data[i] = "CFLAGS = " + flags + "\n"
+    file = open("Makefile", "w") 
+    file.writelines(data)
+    os.chdir("..")
+
+def clear_flags():
+    os.chdir("./src")
+    file = open("Makefile", "r")
+    data = file.readlines()
+    for i in range(len(data)):
+        if data[i].startswith("CFLAGS ="):
+            data[i] = "CFLAGS =" + "\n"
+    file = open("Makefile", "w")
+    file.writelines(data)
     os.chdir("..")
 
 def build():
     os.chdir("./src")
-    subprocess.run(["make", "clean"])
-    subprocess.run(["make"])
+    result = subprocess.run(["make", "clean"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    # print(result.stdout)
+    result = subprocess.run(["make"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    # print(result.stdout)
     os.chdir("..")
 
 def run_benchmark():
     os.chdir("./src")
-    subprocess.run(["./driver", "-b"])
+    result = subprocess.run(["./driver", "-b"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    print(result)
     os.chdir("..")
 
 def run_verifier():
     os.chdir("./src")
-    subprocess.run(["./driver", "-v"])
+    result = subprocess.run(["./driver", "-v"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    print(result)
     os.chdir("..")
 
+# Apple clang version 13.1.6 (clang-1316.0.21.2.3)
+# Target: arm64-apple-darwin21.4.0
+# Thread model: posix
+# clang --help emits a 1300 line, nonexhaustive list of flags
+mac_flags = [
+        "-O0",
+        "-O1",
+        "-O2",
+        "-O3",
+        "-Ofast",
+        "-fdelete-null-pointer-checks",
+        "-ffast-math",
+        "-ffinite-loops",
+        "-faligned-allocation",
+        "-ffinite-math-only",
+        "-funroll-loops",
+        "-fvectorize"
+        ]
+# "-Ofast -fdelete-null-pointer-checks -ffast-math -ffinite-loops"
+
 if __name__ == "__main__":
-    build()
-    run_verifier()
+    # print(list(powerset(mac_flags)))
+    enumeration = list(powerset(mac_flags))
+    count = 0
+    for flags in enumeration:
+        count += 1
+        print(count, " ", flags)
+        add_flags(" ".join(flags))
+        build()
+        run_verifier()
+        run_benchmark()
+        print()
+        clear_flags()

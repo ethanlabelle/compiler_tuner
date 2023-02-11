@@ -32,3 +32,9 @@ void setRand(int *A, int n) {
 		for (int j = 0; j < n; j++)
 			A[i * n + j] = rand() % INP_BND;
 }
+
+void zero(int *A, int n) {
+	for (int i = 0; i < n; i++)
+		for (int j = 0; j < n; j++)
+			A[i * n + j] = 0;
+}
