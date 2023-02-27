@@ -10,14 +10,16 @@ void benchmark() {
     int *A = calloc(elms, sizeof(int));
     int *B = calloc(elms, sizeof(int));
     int *C = calloc(elms, sizeof(int));
-    float startTime = (float)clock()/CLOCKS_PER_SEC;
-    // for (int i = 0; i < 2; i++) {
-    setRand(A, size);
-    setRand(B, size);
-    matmul(A, B, C, size);
-    zero(C, size);
-    // }
-    float endTime = (float)clock()/CLOCKS_PER_SEC;
-    float timeElapsed = endTime - startTime;
-    printf("time: %fs\n", timeElapsed);
+    for (int j = 1; j <= 10; j++) {
+        float startTime = (float)clock()/CLOCKS_PER_SEC;
+        for (int i = 0; i < j; i++) {
+            setRand(A, size);
+            setRand(B, size);
+            matmul(A, B, C, size);
+            zero(C, size);
+        }
+        float endTime = (float)clock()/CLOCKS_PER_SEC;
+        float timeElapsed = endTime - startTime;
+        printf("time %d: %fs\n", j, timeElapsed);
+    }
 }
