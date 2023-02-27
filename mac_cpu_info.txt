@@ -1,0 +1,20 @@
+machdep.cpu.cores_per_package: 10
+machdep.cpu.core_count: 10
+machdep.cpu.logical_per_package: 10
+machdep.cpu.thread_count: 10
+machdep.cpu.brand_string: Apple M1 Pro
+machdep.wake_abstime: 8207989209314
+machdep.time_since_reset: 18334874786
+machdep.wake_conttime: 18403345621559
+machdep.deferred_ipi_timeout: 64000
+machdep.lck_mtx_adaptive_spin_mode: 1
+machdep.virtual_address_size: 47
+machdep.report_phy_read_delay: 0
+machdep.report_phy_write_delay: 0
+machdep.trace_phy_read_delay: 0
+machdep.trace_phy_write_delay: 0
+machdep.report_phy_read_osbt: 0
+machdep.report_phy_write_osbt: 0
+machdep.phy_read_delay_panic: 0
+machdep.phy_writedelay_panic: 0
+machdep.user_idle_level: 0

@@ -30,9 +30,7 @@ def clear_flags():
 def build():
     os.chdir("./src")
     result = subprocess.run(["make", "clean"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
-    # print(result.stdout)
     result = subprocess.run(["make"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
-    # print(result.stdout)
     os.chdir("..")
 
 def run_benchmark():
@@ -47,11 +45,8 @@ def run_verifier():
     print(result)
     os.chdir("..")
 
-# Apple clang version 13.1.6 (clang-1316.0.21.2.3)
-# Target: arm64-apple-darwin21.4.0
-# Thread model: posix
 # clang --help emits a 1300 line, nonexhaustive list of flags
-mac_flags = [
+clang_flags = [
         "-O0",
         "-O1",
         "-O2",
@@ -65,11 +60,9 @@ mac_flags = [
         "-funroll-loops",
         "-fvectorize"
         ]
-# "-Ofast -fdelete-null-pointer-checks -ffast-math -ffinite-loops"
 
 if __name__ == "__main__":
-    # print(list(powerset(mac_flags)))
-    enumeration = list(powerset(mac_flags))
+    enumeration = list(powerset(clang_flags))
     count = 0
     for flags in enumeration:
         count += 1
