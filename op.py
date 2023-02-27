@@ -76,7 +76,7 @@ if __name__ == "__main__":
     #     run_benchmark()
     #     print()
     #     clear_flags()
-    for settings in mac_samples:
+    for settings in intel_samples:
         print(settings)
         flags = settings[0]
         flags = " ".join(eval(flags))

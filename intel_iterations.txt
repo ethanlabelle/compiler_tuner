@@ -1,0 +1,30 @@
+("('-O1', '-ffast-math', '-ffinite-loops', '-faligned-allocation', '-ffinite-math-only', '-funroll-loops')\n", 1.925661)
+CompletedProcess(args=['./driver', '-b'], returncode=0, stdout='time 1: 1.949501s\ntime 2: 3.889982s\ntime 3: 5.835031s\ntime 4: 7.778082s\ntime 5: 9.726000s\ntime 6: 11.669280s\ntime 7: 13.611256s\ntime 8: 15.549516s\ntime 9: 17.500072s\ntime 10: 19.438681s\n')
+
+("('-O0', '-O2', '-O3', '-ffast-math', '-faligned-allocation', '-fvectorize')\n", 1.938127)
+CompletedProcess(args=['./driver', '-b'], returncode=0, stdout='time 1: 1.958170s\ntime 2: 3.907917s\ntime 3: 5.862235s\ntime 4: 7.815968s\ntime 5: 9.769098s\ntime 6: 11.727596s\ntime 7: 13.676152s\ntime 8: 15.620560s\ntime 9: 17.575344s\ntime 10: 19.553783s\n')
+
+("('-O2', '-O3', '-ffast-math', '-ffinite-loops', '-faligned-allocation')\n", 1.939747)
+CompletedProcess(args=['./driver', '-b'], returncode=0, stdout='time 1: 1.939990s\ntime 2: 3.874396s\ntime 3: 5.810828s\ntime 4: 7.746729s\ntime 5: 9.683636s\ntime 6: 11.622176s\ntime 7: 13.555280s\ntime 8: 15.486100s\ntime 9: 17.466640s\ntime 10: 19.391832s\n')
+
+("('-O2', '-faligned-allocation', '-ffinite-math-only')\n", 1.947453)
+CompletedProcess(args=['./driver', '-b'], returncode=0, stdout='time 1: 1.934118s\ntime 2: 3.860318s\ntime 3: 5.790337s\ntime 4: 7.718849s\ntime 5: 9.650072s\ntime 6: 11.579800s\ntime 7: 13.510983s\ntime 8: 15.439396s\ntime 9: 17.369888s\ntime 10: 19.299217s\n')
+
+("('-O0', '-O2', '-Ofast', '-faligned-allocation', '-ffinite-math-only', '-fvectorize')\n", 1.961514)
+CompletedProcess(args=['./driver', '-b'], returncode=0, stdout='time 1: 1.967920s\ntime 2: 3.909094s\ntime 3: 5.858933s\ntime 4: 7.813149s\ntime 5: 9.767720s\ntime 6: 11.717586s\ntime 7: 13.670716s\ntime 8: 15.621536s\ntime 9: 17.585487s\ntime 10: 19.546673s\n')
+
+("('-O0', '-O3', '-Ofast', '-faligned-allocation', '-ffinite-math-only')\n", 1.963413)
+CompletedProcess(args=['./driver', '-b'], returncode=0, stdout='time 1: 1.958393s\ntime 2: 3.905975s\ntime 3: 5.860659s\ntime 4: 7.812398s\ntime 5: 9.767564s\ntime 6: 11.719628s\ntime 7: 13.670804s\ntime 8: 15.626724s\ntime 9: 17.578896s\ntime 10: 19.530184s\n')
+
+("('-O1', '-O2', '-Ofast', '-ffast-math', '-fvectorize')\n", 1.965191)
+CompletedProcess(args=['./driver', '-b'], returncode=0, stdout='time 1: 1.957800s\ntime 2: 3.906483s\ntime 3: 5.859470s\ntime 4: 7.812080s\ntime 5: 9.764040s\ntime 6: 11.717528s\ntime 7: 13.670796s\ntime 8: 15.623936s\ntime 9: 17.573336s\ntime 10: 19.525105s\n')
+
+("('-O0', '-O2', '-O3', '-Ofast', '-ffinite-loops', '-ffinite-math-only', '-funroll-loops')\n", 1.969725)
+CompletedProcess(args=['./driver', '-b'], returncode=0, stdout='time 1: 1.958773s\ntime 2: 3.906196s\ntime 3: 5.859712s\ntime 4: 7.812904s\ntime 5: 9.770568s\ntime 6: 11.715002s\ntime 7: 13.672576s\ntime 8: 15.626756s\ntime 9: 17.601551s\ntime 10: 19.530600s\n')
+
+("('-O0', '-O1', '-ffinite-loops', '-faligned-allocation')\n", 1.988994)
+CompletedProcess(args=['./driver', '-b'], returncode=0, stdout='time 1: 1.982912s\ntime 2: 3.958361s\ntime 3: 5.936316s\ntime 4: 7.915092s\ntime 5: 9.894356s\ntime 6: 11.872940s\ntime 7: 13.860252s\ntime 8: 15.834080s\ntime 9: 17.809738s\ntime 10: 19.788742s\n')
+
+("('-O0', '-O1', '-O2', '-Ofast', '-fdelete-null-pointer-checks', '-ffast-math', '-faligned-allocation', '-ffinite-math-only')\n", 2.019643)
+CompletedProcess(args=['./driver', '-b'], returncode=0, stdout='time 1: 1.962738s\ntime 2: 3.906351s\ntime 3: 5.855719s\ntime 4: 7.811680s\ntime 5: 9.765708s\ntime 6: 11.715832s\ntime 7: 13.671264s\ntime 8: 15.626432s\ntime 9: 17.576391s\ntime 10: 19.528456s\n')
+
