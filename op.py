@@ -61,15 +61,28 @@ clang_flags = [
         "-fvectorize"
         ]
 
+exhaust = False
 if __name__ == "__main__":
-    enumeration = list(powerset(clang_flags))
     count = 0
-    for flags in enumeration:
-        count += 1
-        print(count, " ", flags)
-        add_flags(" ".join(flags))
-        build()
-        run_verifier()
-        run_benchmark()
-        print()
-        clear_flags()
+    if exhaust:
+        enumeration = list(powerset(clang_flags))
+        for flags in enumeration:
+            count += 1
+            print(count, " ", flags)
+            add_flags(" ".join(flags))
+            build()
+            run_verifier()
+            run_benchmark()
+            print()
+            clear_flags()
+    else:
+        clang_flags.insert(0, "")
+        for flag in clang_flags:
+            count += 1
+            print(count, " ", flag)
+            add_flags(flag)
+            build()
+            run_verifier()
+            run_benchmark()
+            print()
+            clear_flags()

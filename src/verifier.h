@@ -3,5 +3,7 @@
 void _matmul(int *A, int* B, int *C, int n, int r, int m);
 void matsub(int *A, int* B, int* C, int n, int m);
 int freivald(int* A,int* B,int* C, int n);
+void verify_fib();
+void verify_matmul();
 void verify();
 #endif

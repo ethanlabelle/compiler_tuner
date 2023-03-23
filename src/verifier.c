@@ -1,5 +1,6 @@
 #include "verifier.h"
 #include "matmul.h"
+#include "fib.h"
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,7 +47,7 @@ int freivald(int* A,int* B,int* C, int n) {
 	return 1;
 }
 
-void verify() {
+void verify_matmul() {
     for (int i = 1; i <= 100; i++) {
         int *A = calloc(i*i, sizeof(int));
         int *B = calloc(i*i, sizeof(int));
@@ -61,4 +62,16 @@ void verify() {
 	    free(C);
     }
     printf("passed verifier!\n");
+}
+
+void verify() {
+	verify_fib();
+}
+
+void verify_fib() {
+	assert(fib(0) == 0);
+	assert(fib(1) == 1);
+	assert(fib(10) == 55);
+	assert(fib(20) == 6765);
+	assert(fib(30) == 832040);
 }
