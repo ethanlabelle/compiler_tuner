@@ -7,24 +7,24 @@ def powerset(elements):
 
 def add_flags(flags):
     os.chdir("./src")
-    file = open("Makefile", "r") 
-    data = file.readlines()
+    with open("Makefile", "r") as file:
+        data = file.readlines()
     for i in range(len(data)):
         if data[i].startswith("CFLAGS ="):
             data[i] = "CFLAGS = " + flags + "\n"
-    file = open("Makefile", "w") 
-    file.writelines(data)
+    with open("Makefile", "w") as file:
+        file.writelines(data)
     os.chdir("..")
 
 def clear_flags():
     os.chdir("./src")
-    file = open("Makefile", "r")
-    data = file.readlines()
+    with open("Makefile", "r") as file:
+        data = file.readlines()
     for i in range(len(data)):
         if data[i].startswith("CFLAGS ="):
             data[i] = "CFLAGS =" + "\n"
-    file = open("Makefile", "w")
-    file.writelines(data)
+    with open("Makefile", "w") as file:
+        file.writelines(data)
     os.chdir("..")
 
 def build():

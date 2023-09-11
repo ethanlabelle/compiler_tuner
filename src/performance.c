@@ -23,12 +23,12 @@ void benchmark_matmul() {
 
 void benchmark_fib() {
     float startTime = (float)clock()/CLOCKS_PER_SEC;
-    int a = fib(100);
+    int a = fib(45);
     float endTime = (float)clock()/CLOCKS_PER_SEC;
     float timeElapsed = endTime - startTime;
     printf("time: %fs\n", timeElapsed);
 }
 
 void benchmark() {
-    benchmark_matmul();
+    benchmark_fib();
 }
