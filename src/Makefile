@@ -12,4 +12,4 @@ driver: driver.o verifier.o performance.o matmul.o fib.o
 	$(CC) $(CFLAGS) -o $(OBJECTS)
 
 clean: 
-	rm -f $(OBJECTS) $(TARGET)
+	rm -f $(OBJECTS)
